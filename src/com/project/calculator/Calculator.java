@@ -122,7 +122,11 @@ public class Calculator {
     private void btnLnActionPerformed(ActionEvent event) {
         textDisplay.setText(textDisplay.getText() + btnLn.getText());
     }
-
+    private void btnEqualActionPerformed(ActionEvent event)
+    {
+        Calculate calculate = new Calculate();
+        calculate.evaluation(textDisplay.getText(),true);
+    }
     private void btnSqrtActionPerformed(ActionEvent e) {
         textDisplay.setText(textDisplay.getText() + btnSqrt.getText());
     }
@@ -250,7 +254,12 @@ public class Calculator {
                 btn0ActionPerformed(event);
             }
         });
-
+        btnEqual.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                btnEqualActionPerformed(event);
+            }
+        });
         btnSqrt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
